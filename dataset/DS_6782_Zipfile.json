@@ -1,0 +1,26 @@
+{
+	"name": "DS_6782_Zipfile",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_6782_BlobSA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Zip Folder of csv files.zip",
+				"container": "srccon"
+			},
+			"columnDelimiter": ",",
+			"compressionCodec": "ZipDeflate",
+			"compressionLevel": "Optimal",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

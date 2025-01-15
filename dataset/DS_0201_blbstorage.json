@@ -1,0 +1,34 @@
+{
+	"name": "DS_0201_blbstorage",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_0201_blbstorage",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"filename": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().filename",
+					"type": "Expression"
+				},
+				"container": "srccon"
+			},
+			"columnDelimiter": ",",
+			"compressionCodec": null,
+			"compressionLevel": "Optimal",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

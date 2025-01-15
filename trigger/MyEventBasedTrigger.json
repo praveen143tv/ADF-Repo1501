@@ -1,0 +1,24 @@
+{
+	"name": "MyEventBasedTrigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "PL_TMWT",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathEndsWith": ".csv",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/97114ec6-f2a3-419b-806c-48d4f3c572d7/resourceGroups/PracticeADE-RG1/providers/Microsoft.Storage/storageAccounts/1301sourcesa",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}

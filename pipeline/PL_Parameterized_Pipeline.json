@@ -1,0 +1,108 @@
+{
+	"name": "PL_Parameterized_Pipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy Data From Github To ADLS",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Variable",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "HttpReadSettings",
+							"requestMethod": "GET"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".csv"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS_0401_Http",
+						"type": "DatasetReference",
+						"parameters": {
+							"BaseUrl": {
+								"value": "@variables('SourceBaseURL')",
+								"type": "Expression"
+							},
+							"RelativeURL": {
+								"value": "@variables('SourceRelativeURL')",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS_0401_Gen2storage",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Variable",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "SourceRelativeURL",
+					"value": "suresh12345/AzureDataEngineering_Batch/main/ecdc_data/testing.csv"
+				}
+			}
+		],
+		"variables": {
+			"SourceBaseURL": {
+				"type": "String",
+				"defaultValue": "https://raw.githubusercontent.com/ "
+			},
+			"SourceRelativeURL": {
+				"type": "String",
+				"defaultValue": "suresh12345/AzureDataEngineering_Batch/main/ecdc_data/country_response.csv"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-01-04T10:19:34Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

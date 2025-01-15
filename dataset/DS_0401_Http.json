@@ -1,0 +1,40 @@
+{
+	"name": "DS_0401_Http",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_0401_Http",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"BaseUrl": {
+					"value": "@dataset().BaseUrl",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"BaseUrl": {
+				"type": "string"
+			},
+			"RelativeURL": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": {
+					"value": "@dataset().RelativeURL",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
