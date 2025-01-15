@@ -1,0 +1,69 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "6781ADF"
+		},
+		"LS_0201_blbstorage_connectionString": {
+			"value": ""
+		},
+		"LS_0201_gen2storage_accountKey": {
+			"value": ""
+		},
+		"LS_0401_Gen2storage_accountKey": {
+			"value": ""
+		},
+		"LS_6782_BlobSA_connectionString": {
+			"value": ""
+		},
+		"LS_6782_Gen2SA_accountKey": {
+			"value": ""
+		},
+		"LS_ADLstorage_accountKey": {
+			"value": ""
+		},
+		"LS_BlbSA_connectionString": {
+			"value": ""
+		},
+		"LS_Blbstorage_connectionString": {
+			"value": ""
+		},
+		"LS_BlobSA_connectionString": {
+			"value": ""
+		},
+		"LS_Gen2SA_accountKey": {
+			"value": ""
+		},
+		"LS_TMBT_connectionString": {
+			"value": ""
+		},
+		"LS_0201_gen2storage_properties_typeProperties_url": {
+			"value": "https://0201destsa.dfs.core.windows.net/"
+		},
+		"LS_0401_Gen2storage_properties_typeProperties_url": {
+			"value": "https://0401destsa.dfs.core.windows.net/"
+		},
+		"LS_0401_Http_properties_typeProperties_url": {
+			"value": "@{linkedService().BaseUrl}"
+		},
+		"LS_6782_Gen2SA_properties_typeProperties_url": {
+			"value": "https://6782destsa.dfs.core.windows.net/"
+		},
+		"LS_ADLstorage_properties_typeProperties_url": {
+			"value": "https://6783destsa.dfs.core.windows.net/"
+		},
+		"LS_AzureSql_properties_typeProperties_connectionString_secretName": {
+			"value": "SQLConnectionString"
+		},
+		"LS_Gen2SA_properties_typeProperties_url": {
+			"value": "https://6781destsa.dfs.core.windows.net/"
+		},
+		"LS_KeyVault_properties_typeProperties_baseUrl": {
+			"value": "https://praveenkv1401.vault.azure.net/"
+		},
+		"MyEventBasedTrigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/97114ec6-f2a3-419b-806c-48d4f3c572d7/resourceGroups/PracticeADE-RG1/providers/Microsoft.Storage/storageAccounts/1301sourcesa"
+		}
+	}
+}

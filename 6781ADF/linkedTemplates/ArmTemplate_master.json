@@ -1,0 +1,202 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "6781ADF"
+		},
+		"LS_0201_blbstorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_0201_blbstorage'"
+		},
+		"LS_0201_gen2storage_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_0201_gen2storage'"
+		},
+		"LS_0401_Gen2storage_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_0401_Gen2storage'"
+		},
+		"LS_6782_BlobSA_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_6782_BlobSA'"
+		},
+		"LS_6782_Gen2SA_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_6782_Gen2SA'"
+		},
+		"LS_ADLstorage_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ADLstorage'"
+		},
+		"LS_BlbSA_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_BlbSA'"
+		},
+		"LS_Blbstorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_Blbstorage'"
+		},
+		"LS_BlobSA_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_BlobSA'"
+		},
+		"LS_Gen2SA_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_Gen2SA'"
+		},
+		"LS_TMBT_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_TMBT'"
+		},
+		"LS_0201_gen2storage_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://0201destsa.dfs.core.windows.net/"
+		},
+		"LS_0401_Gen2storage_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://0401destsa.dfs.core.windows.net/"
+		},
+		"LS_0401_Http_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "@{linkedService().BaseUrl}"
+		},
+		"LS_6782_Gen2SA_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://6782destsa.dfs.core.windows.net/"
+		},
+		"LS_ADLstorage_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://6783destsa.dfs.core.windows.net/"
+		},
+		"LS_AzureSql_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "SQLConnectionString"
+		},
+		"LS_Gen2SA_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://6781destsa.dfs.core.windows.net/"
+		},
+		"LS_KeyVault_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://praveenkv1401.vault.azure.net/"
+		},
+		"MyEventBasedTrigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/97114ec6-f2a3-419b-806c-48d4f3c572d7/resourceGroups/PracticeADE-RG1/providers/Microsoft.Storage/storageAccounts/1301sourcesa"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "6781ADF_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"LS_0201_blbstorage_connectionString": {
+						"value": "[parameters('LS_0201_blbstorage_connectionString')]"
+					},
+					"LS_0201_gen2storage_accountKey": {
+						"value": "[parameters('LS_0201_gen2storage_accountKey')]"
+					},
+					"LS_0401_Gen2storage_accountKey": {
+						"value": "[parameters('LS_0401_Gen2storage_accountKey')]"
+					},
+					"LS_6782_BlobSA_connectionString": {
+						"value": "[parameters('LS_6782_BlobSA_connectionString')]"
+					},
+					"LS_6782_Gen2SA_accountKey": {
+						"value": "[parameters('LS_6782_Gen2SA_accountKey')]"
+					},
+					"LS_ADLstorage_accountKey": {
+						"value": "[parameters('LS_ADLstorage_accountKey')]"
+					},
+					"LS_BlbSA_connectionString": {
+						"value": "[parameters('LS_BlbSA_connectionString')]"
+					},
+					"LS_Blbstorage_connectionString": {
+						"value": "[parameters('LS_Blbstorage_connectionString')]"
+					},
+					"LS_BlobSA_connectionString": {
+						"value": "[parameters('LS_BlobSA_connectionString')]"
+					},
+					"LS_Gen2SA_accountKey": {
+						"value": "[parameters('LS_Gen2SA_accountKey')]"
+					},
+					"LS_TMBT_connectionString": {
+						"value": "[parameters('LS_TMBT_connectionString')]"
+					},
+					"LS_KeyVault_properties_typeProperties_baseUrl": {
+						"value": "[parameters('LS_KeyVault_properties_typeProperties_baseUrl')]"
+					},
+					"LS_0201_gen2storage_properties_typeProperties_url": {
+						"value": "[parameters('LS_0201_gen2storage_properties_typeProperties_url')]"
+					},
+					"LS_0401_Gen2storage_properties_typeProperties_url": {
+						"value": "[parameters('LS_0401_Gen2storage_properties_typeProperties_url')]"
+					},
+					"LS_0401_Http_properties_typeProperties_url": {
+						"value": "[parameters('LS_0401_Http_properties_typeProperties_url')]"
+					},
+					"LS_6782_Gen2SA_properties_typeProperties_url": {
+						"value": "[parameters('LS_6782_Gen2SA_properties_typeProperties_url')]"
+					},
+					"LS_ADLstorage_properties_typeProperties_url": {
+						"value": "[parameters('LS_ADLstorage_properties_typeProperties_url')]"
+					},
+					"LS_AzureSql_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('LS_AzureSql_properties_typeProperties_connectionString_secretName')]"
+					},
+					"LS_Gen2SA_properties_typeProperties_url": {
+						"value": "[parameters('LS_Gen2SA_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "6781ADF_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"MyEventBasedTrigger_properties_typeProperties_scope": {
+						"value": "[parameters('MyEventBasedTrigger_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', '6781ADF_ArmTemplate_0')]"
+			]
+		}
+	]
+}
